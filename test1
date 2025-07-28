@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek - AI-Powered Business Automation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #4F46E5 0%, #10B981 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .ai-agent-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .ai-agent-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-robot text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-dark">Nexus<span class="text-primary">AI</span></span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#services" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="#solutions" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">Solutions</a>
+                    <a href="#about" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">About Us</a>
+                    <a href="#contact" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="#demo" class="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition duration-300">Request Demo</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-dark hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:text-primary hover:bg-gray-50">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:text-primary hover:bg-gray-50">Services</a>
+                <a href="#solutions" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:text-primary hover:bg-gray-50">Solutions</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:text-primary hover:bg-gray-50">About Us</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:text-primary hover:bg-gray-50">Contact</a>
+                <a href="#demo" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary hover:bg-opacity-90">Request Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Transform Your Business with <span class="underline decoration-secondary">AI Agents</span></h1>
+                    <p class="text-lg md:text-xl mb-8 opacity-90">We build intelligent automation solutions that streamline operations, reduce costs, and boost productivity using cutting-edge AI technology.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-white text-primary px-6 py-3 rounded-md text-lg font-semibold hover:bg-opacity-90 transition duration-300 text-center">Get Started</a>
+                        <a href="#solutions" class="border-2 border-white text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-white hover:bg-opacity-10 transition duration-300 text-center">Learn More</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Business Process Automation" class="rounded-lg shadow-2xl max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-5xl font-bold text-primary mb-2">87%</div>
+                    <div class="text-dark font-medium">Reduction in manual processes</div>
+                </div>
+                <div class="p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-5xl font-bold text-primary mb-2">3.5x</div>
+                    <div class="text-dark font-medium">Increase in operational efficiency</div>
+                </div>
+                <div class="p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-5xl font-bold text-primary mb-2">24/7</div>
+                    <div class="text-dark font-medium">Automated business operations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our AI Automation Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">We specialize in creating custom AI agents that handle complex business processes autonomously.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-primary text-2xl ai-agent-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Process Automation</h3>
+                    <p class="text-gray-600 mb-4">Automate repetitive tasks and workflows with intelligent agents that learn and improve over time.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Document processing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Data entry automation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Workflow optimization</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-primary text-2xl ai-agent-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">AI Customer Support</h3>
+                    <p class="text-gray-600 mb-4">Deploy conversational AI agents that provide 24/7 customer service with human-like interactions.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Chatbots & virtual assistants</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Ticket routing & resolution</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Sentiment analysis</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-primary text-2xl ai-agent-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Predictive Analytics</h3>
+                    <p class="text-gray-600 mb-4">Leverage AI to forecast trends, detect anomalies, and make data-driven business decisions.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Demand forecasting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Risk assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Real-time insights</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Industry-Specific AI Solutions</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Tailored automation solutions designed for your industry's unique challenges.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hospital text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark">Healthcare Automation</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">AI agents for patient scheduling, medical record processing, and diagnostic support that reduce administrative burden and improve care quality.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Appointment scheduling</span>
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Claims processing</span>
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Patient triage</span>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-money-bill-wave text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark">Financial Services</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Automate fraud detection, loan processing, and compliance reporting with AI agents that understand financial regulations.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Fraud detection</span>
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Loan underwriting</span>
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Regulatory compliance</span>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-truck text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark">Supply Chain</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Optimize inventory management, logistics routing, and supplier communications with autonomous AI agents.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Inventory optimization</span>
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Route planning</span>
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Supplier coordination</span>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-shopping-cart text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark">E-Commerce</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">AI-powered personalization, dynamic pricing, and automated customer service that boost conversions and loyalty.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Personalized recommendations</span>
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Dynamic pricing</span>
+                        <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">Order management</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-opacity-90 transition duration-300">
+                    Get Custom Solution
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">How Our AI Agents Work</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">A seamless process from consultation to deployment.</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline bar -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary bg-opacity-20"></div>
+                
+                <!-- Steps -->
+                <div class="space-y-16 md:space-y-0">
+                    <!-- Step 1 -->
+                    <div class="relative md:flex md:items-center md:justify-between">
+                        <div class="md:w-5/12 mb-8 md:mb-0">
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-lg mr-4">1</div>
+                                <h3 class="text-xl font-bold text-dark">Discovery & Analysis</h3>
+                            </div>
+                            <p class="mt-4 text-gray-600">We analyze your business processes to identify automation opportunities and quantify potential ROI.</p>
+                        </div>
+                        <div class="hidden md:block md:w-2/12 flex justify-center">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-search text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative md:flex md:items-center md:justify-between">
+                        <div class="md:w-5/12"></div>
+                        <div class="hidden md:block md:w-2/12 flex justify-center">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12 mb-8 md:mb-0">
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-lg mr-4">2</div>
+                                <h3 class="text-xl font-bold text-dark">Solution Design</h3>
+                            </div>
+                            <p class="mt-4 text-gray-600">Our experts design custom AI agents tailored to your specific needs and integration requirements.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative md:flex md:items-center md:justify-between">
+                        <div class="md:w-5/12 mb-8 md:mb-0">
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-lg mr-4">3</div>
+                                <h3 class="text-xl font-bold text-dark">Development & Training</h3>
+                            </div>
+                            <p class="mt-4 text-gray-600">We build and train your AI agents using your data and processes to ensure optimal performance.</p>
+                        </div>
+                        <div class="hidden md:block md:w-2/12 flex justify-center">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-code text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="relative md:flex md:items-center md:justify-between">
+                        <div class="md:w-5/12"></div>
+                        <div class="hidden md:block md:w-2/12 flex justify-center">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-rocket text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12 mb-8 md:mb-0">
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-lg mr-4">4</div>
+                                <h3 class="text-xl font-bold text-dark">Deployment & Support</h3>
+                            </div>
+                            <p class="mt-4 text-gray-600">We implement the solution and provide ongoing support and optimization as your needs evolve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">What Our Clients Say</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Businesses transformed through AI automation.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-sm">COO, HealthPlus</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The AI scheduling agents reduced our patient no-show rate by 65% while freeing up 20 hours per week for our staff to focus on patient care."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">Michael Chen</h4>
+                            <p class="text-gray-500 text-sm">CEO, Finova Capital</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Our loan processing time decreased from 5 days to 2 hours after implementing NexusAI's automation solution. The ROI was immediate."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa Rodriguez" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">Lisa Rodriguez</h4>
+                            <p class="text-gray-500 text-sm">Operations Director, ShopEase</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The AI inventory management system reduced our stockouts by 80% and improved our fulfillment accuracy to 99.7%. Game-changing technology."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">About NexusAI</h2>
+                    <p class="text-lg text-gray-600 mb-6">Founded in 2018, NexusAI is a leader in business process automation powered by artificial intelligence. Our team of AI experts, data scientists, and business process consultants have delivered transformative solutions to over 200 companies worldwide.</p>
+                    <p class="text-lg text-gray-600 mb-8">We believe in creating AI agents that augment human capabilities, not replace them. Our solutions are designed to handle the repetitive, time-consuming tasks so your team can focus on strategic initiatives that drive growth.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-medal text-primary"></i>
+                            </div>
+                            <span class="font-medium">AI Excellence Award 2023</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-users text-primary"></i>
+                            </div>
+                            <span class="font-medium">50+ AI Specialists</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold text-dark mb-6">Our Core Values</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                        <i class="fas fa-lightbulb text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-dark">Innovation</h4>
+                                    <p class="text-gray-600 mt-1">We push the boundaries of what's possible with AI to create groundbreaking solutions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                        <i class="fas fa-handshake text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-dark">Partnership</h4>
+                                    <p class="text-gray-600 mt-1">We work closely with clients to understand their unique challenges and goals.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                        <i class="fas fa-shield-alt text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-dark">Ethics</h4>
+                                    <p class="text-gray-600 mt-1">We develop responsible AI that's transparent, fair, and respects privacy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Automate Your Business Processes?</h2>
+            <p class="text-xl opacity-90 mb-8 max-w-3xl mx-auto">Schedule a free consultation with our AI experts to discover how automation can transform your operations.</p>
+            <a href="#contact" class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-primary bg-white hover:bg-opacity-90 transition duration-300 shadow-lg">
+                Get Started Today
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Contact Us</h2>
+                    <p class="text-lg text-gray-600 mb-8">Have questions about how AI automation can benefit your business? Our team is ready to help.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-dark">Headquarters</h4>
+                                <p class="text-gray-600 mt-1">123 AI Boulevard, San Francisco, CA 94107</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-dark">Email Us</h4>
+                                <p class="text-gray-600 mt-1">info@nexusai.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-phone-alt text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-dark">Call Us</h4>
+                                <p class="text-gray-600 mt-1">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-12">
+                    <form class="bg-gray-50 p-8 rounded-xl shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your name">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                            <input type="text" id="company" name="company" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your company name">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">How can we help?</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tell us about your automation needs"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-opacity-90 transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-robot text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">Nexus<span class="text-primary">AI</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Transforming businesses through intelligent automation.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Process Automation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">AI Customer Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Predictive Analytics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom AI Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Industries</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Healthcare</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Financial Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Retail & E-Commerce</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Manufacturing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 NexusAI. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-sm">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the form data to a server
+                // For this example, we'll just show an alert
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
