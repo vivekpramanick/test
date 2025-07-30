@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: chatbot_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - chatbot_network
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: chatbot_n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=password
+      - DB_TYPE=sqlite
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://localhost:5678/
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./n8n/workflows:/home/node/.n8n/workflows
+    networks:
+      - chatbot_network
+    depends_on:
+      - redis
+
+  chatbot_api:
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: chatbot_api
+    ports:
+      - "3000:3000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - NODE_ENV=production
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    networks:
+      - chatbot_network
+    depends_on:
+      - redis
+
+volumes:
+  redis_data:
+  n8n_data:
+
+networks:
+  chatbot_network:
+    driver: bridge
